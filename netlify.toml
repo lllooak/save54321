@@ -1,11 +1,26 @@
+# Netlify configuration
+#
+# Adjust "command" and "publish" to your project.
+# For Vite/React/SPA: command = "npm run build", publish = "dist"
+# For Next.js static export: command = "npm run build && npm run export", publish = "out"
+# For Astro: command = "npm run build", publish = "dist"
+# For Create React App: command = "npm run build", publish = "build"
+#
+# If you are using a framework-specific Netlify adapter/plugin, follow its docs.
+
 [build]
   command = "npm run build"
   publish = "dist"
-  [build.environment]
-    NODE_VERSION = "20"
+  # Pin Node for the build image (Netlify respects this)
+  node_version = "20.19.4"
 
-# For React SPA routing on Netlify
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[build.environment]
+  # If you use private npm registries, set NPM_TOKEN or NODE_AUTH_TOKEN in Netlify UI
+  # NPM_FLAGS = "--no-fund --no-audit"
+  # CI = "true"
+
+# Example: set framework-specific redirects (optional)
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
