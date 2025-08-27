@@ -1,17 +1,18 @@
+# Netlify configuration for a Vite + React app
+# - Reproducible installs with npm ci
+# - Publish Vite output from /dist
+# - Pin Node to a modern LTS for Vite 5
+# - SPA-style routing fallback
+
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "20"
+
+# Single Page App fallback so client-side routes work
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true # Force redirect for all paths
-
-[[headers]]
-  for = "/*"
-    [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
