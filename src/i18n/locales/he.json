@@ -1,0 +1,115 @@
+{
+  "navigation": {
+    "explore": "גלה",
+    "categories": "קטגוריות",
+    "search": "חפש יוצרים...",
+    "signIn": "התחבר",
+    "createAccount": "צור חשבון",
+    "signUpAsFan": "הרשם כמעריץ",
+    "signUpAsCreator": "הרשם כיוצר",
+    "creatorDashboard": "לוח בקרה ליוצר",
+    "fanDashboard": "לוח בקרה למעריץ",
+    "signOut": "התנתק"
+  },
+  "home": {
+    "hero": {
+      "title": "קבל סרטוני ברכה אישיים מהכוכבים האהובים עליך",
+      "subtitle": "הזמן סרטוני ברכה מותאמים אישית לכל אירוע. הפוך את היום של מישהו למיוחד עם ברכה אישית מהכוכב האהוב עליו.",
+      "cta": "גלה יוצרים"
+    },
+    "howItWorks": {
+      "title": "איך זה עובד",
+      "subtitle": "שלושה שלבים פשוטים",
+      "steps": {
+        "choose": {
+          "title": "1. בחר יוצר",
+          "description": "עיין במגוון היוצרים המוכשרים שלנו ומצא את ההתאמה המושלמת להודעת הוידאו שלך."
+        },
+        "request": {
+          "title": "2. בקש סרטון",
+          "description": "ספר לנו על האירוע ומה תרצה שהיוצר יאמר בסרטון המותאם אישית שלך."
+        },
+        "receive": {
+          "title": "3. קבל ושתף",
+          "description": "קבל את הסרטון הייחודי שלך לתיבת הדואר ושתף את הקסם עם יקיריך."
+        }
+      }
+    }
+  },
+  "categories": {
+    "musician": "מוזיקאי",
+    "actor": "שחקן",
+    "comedian": "קומיקאי",
+    "influencer": "משפיען",
+    "athlete": "ספורטאי",
+    "artist": "אמן",
+    "viewAll": "צפה בהכל",
+    "featuredCreators": "יוצרים מובילים",
+    "featured": "מומלץ",
+    "availableVideos": "סרטונים זמינים",
+    "noFeatured": "אין יוצרים מומלצים כרגע",
+    "noCreatorsInCategory": "אין יוצרים בקטגוריה זו כרגע",
+    "errorLoading": "שגיאה בטעינת הקטגוריות. אנא נסה שוב.",
+    "descriptions": {
+      "musician": "קבל סרטונים מותאמים אישית ממוזיקאים",
+      "actor": "קבל סרטונים מותאמים אישית משחקנים",
+      "comedian": "קבל סרטונים מותאמים אישית מקומיקאים",
+      "influencer": "קבל סרטונים מותאמים אישית ממשפיענים",
+      "athlete": "קבל סרטונים מותאמים אישית מספורטאים",
+      "artist": "קבל סרטונים מותאמים אישית מאמנים"
+    }
+  },
+  "buttons": {
+    "addToCart": "הוסף לסל",
+    "bookNow": "הזמן עכשיו",
+    "save": "שמור",
+    "cancel": "בטל",
+    "edit": "ערוך",
+    "delete": "מחק",
+    "share": "שתף",
+    "follow": "עקוב",
+    "message": "שלח הודעה",
+    "viewProfile": "צפה בפרופיל",
+    "loadMore": "טען עוד",
+    "confirm": "אשר",
+    "submit": "שלח",
+    "close": "סגור",
+    "search": "חפש",
+    "filter": "סנן",
+    "clearAll": "נקה הכל",
+    "apply": "החל",
+    "checkout": "לתשלום",
+    "continue": "המשך",
+    "back": "חזור",
+    "next": "הבא"
+  },
+  "cart": {
+    "title": "סל קניות",
+    "empty": "הסל שלך ריק",
+    "total": "סה״כ",
+    "checkout": "לתשלום",
+    "remove": "הסר",
+    "clear": "רוקן סל",
+    "continueShopping": "המשך בקניות"
+  },
+  "profile": {
+    "edit": "ערוך פרופיל",
+    "save": "שמור שינויים",
+    "cancel": "בטל",
+    "uploadPhoto": "העלה תמונה",
+    "changeBanner": "שנה תמונת רקע"
+  },
+  "common": {
+    "price": "מחיר",
+    "delivery": "זמן אספקה",
+    "status": "סטטוס",
+    "actions": "פעולות",
+    "loading": "טוען...",
+    "noResults": "לא נמצאו תוצאות",
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "warning": "אזהרה",
+    "info": "מידע",
+    "retry": "נסה שוב"
+  }
+}

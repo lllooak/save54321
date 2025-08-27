@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Earnings Realtime</title>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; background: white; padding: 20px; border-radius: 8px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        #logs { background: #f8f9fa; padding: 15px; border-radius: 4px; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 Test Earnings Realtime</h1>
+        <p>This tool tests if realtime subscriptions work on the earnings table.</p>
+        
+        <div id="status" class="status info">Not connected</div>
+        
+        <div>
+            <button onclick="testConnection()">Test Connection</button>
+            <button onclick="testRealtime()">Start Realtime Test</button>
+            <button onclick="clearLogs()">Clear Logs</button>
+        </div>
+        
+        <h3>📊 Real-time Logs:</h3>
+        <div id="logs">Click "Start Realtime Test" to begin monitoring earnings table changes...</div>
+    </div>
+
+    <script>
+        let supabase = null;
+        let subscription = null;
+        
+        // Initialize Supabase (you'll need to replace with your actual credentials)
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleString('he-IL');
+            const logElement = document.getElementById('logs');
+            logElement.textContent += `[${timestamp}] ${message}\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(message);
+        }
+        
+        function updateStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+        
+        async function testConnection() {
+            try {
+                if (!SUPABASE_URL.startsWith('http') || !SUPABASE_ANON_KEY.length > 10) {
+                    updateStatus('❌ Need to configure Supabase credentials in script', 'error');
+                    log('ERROR: Please update SUPABASE_URL and SUPABASE_ANON_KEY in the script');
+                    return;
+                }
+                
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                
+                // Test basic connection with a simple query
+                const { data, error } = await supabase
+                    .from('earnings')
+                    .select('count(*)')
+                    .limit(1);
+                    
+                if (error) {
+                    throw error;
+                }
+                
+                updateStatus('✅ Connection successful', 'success');
+                log('✅ Successfully connected to Supabase');
+                log(`📊 Earnings table is accessible`);
+                
+            } catch (error) {
+                updateStatus(`❌ Connection failed: ${error.message}`, 'error');
+                log(`❌ Connection error: ${error.message}`);
+            }
+        }
+        
+        async function enableRealtime() {
+            if (!supabase) {
+                log('❌ Please connect first');
+                return;
+            }
+            
+            log('🔧 Enabling real-time on earnings table...');
+            
+            // Try to enable real-time using SQL
+            try {
+                const { data, error } = await supabase
+                    .from('earnings')
+                    .select('id')
+                    .limit(1);
+                    
+                if (error) {
+                    log('❌ Cannot access earnings table: ' + error.message);
+                    return;
+                }
+                
+                log('✅ Can access earnings table');
+                log('ℹ️  Real-time may already be enabled by default in newer Supabase versions');
+                log('🚀 Try starting real-time test to verify functionality');
+                
+            } catch (err) {
+                log('❌ Error checking earnings table: ' + err.message);
+            }
+        }
+        
+        async function testRealtime() {
+            if (!supabase) {
+                updateStatus('❌ Connect first', 'error');
+                return;
+            }
+            
+            try {
+                // Clean up existing subscription
+                if (subscription) {
+                    await supabase.removeChannel(subscription);
+                }
+                
+                updateStatus('🔄 Setting up realtime subscription...', 'info');
+                log('🔄 Setting up realtime subscription on earnings table...');
+                
+                // Create realtime subscription
+                subscription = supabase
+                    .channel('earnings-changes')
+                    .on('postgres_changes', {
+                        event: '*',
+                        schema: 'public',
+                        table: 'earnings'
+                    }, (payload) => {
+                        log('🔥 REALTIME EVENT RECEIVED!');
+                        log(`Event: ${payload.eventType}`);
+                        log(`Data: ${JSON.stringify(payload.new || payload.old, null, 2)}`);
+                        updateStatus('✅ Realtime working! Check logs below.', 'success');
+                    })
+                    .subscribe((status) => {
+                        log(`📡 Subscription status: ${status}`);
+                        if (status === 'SUBSCRIBED') {
+                            updateStatus('✅ Realtime subscription active', 'success');
+                            log('✅ Realtime subscription is active');
+                            log('💡 Now upload a video to test if earnings changes are detected!');
+                        }
+                    });
+                
+            } catch (error) {
+                updateStatus(`❌ Realtime setup failed: ${error.message}`, 'error');
+                log(`❌ Realtime error: ${error.message}`);
+            }
+        }
+        
+        function clearLogs() {
+            document.getElementById('logs').textContent = 'Logs cleared...\n';
+        }
+        
+        // Instructions
+        log('🔬 Earnings Realtime Test Tool');
+        log('📝 Instructions:');
+        log('1. Update SUPABASE_URL and SUPABASE_ANON_KEY in this script');
+        log('2. Click "Test Connection" to verify database access');
+        log('3. Click "Start Realtime Test" to monitor earnings changes');
+        log('4. Upload a video in your app to test realtime updates');
+        log('✨ If realtime is working, you\'ll see events appear here immediately!');
+    </script>
+</body>
+</html>

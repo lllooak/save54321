@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "explore": "Explore",
+    "categories": "Categories",
+    "search": "Search creators...",
+    "signIn": "Sign in",
+    "createAccount": "Create Account",
+    "signUpAsFan": "Sign up as Fan",
+    "signUpAsCreator": "Sign up as Creator"
+  },
+  "home": {
+    "hero": {
+      "title": "Get Personalized Videos from Your Favorite Creators",
+      "subtitle": "Book personalized video shoutouts for any occasion. Make someone's day special with a unique message from their favorite creator.",
+      "cta": "Explore Creators"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Three Simple Steps",
+      "steps": {
+        "choose": {
+          "title": "1. Choose a Creator",
+          "description": "Browse our diverse roster of talented creators and find the perfect match for your video message."
+        },
+        "request": {
+          "title": "2. Request a Video",
+          "description": "Tell us about your occasion and what you'd like the creator to say in your personalized video."
+        },
+        "receive": {
+          "title": "3. Receive & Share",
+          "description": "Get your unique video delivered to your inbox and share the magic with your loved ones."
+        }
+      }
+    }
+  },
+  "categories": {
+    "musician": "Musician",
+    "actor": "Actor",
+    "comedian": "Comedian",
+    "influencer": "Influencer",
+    "athlete": "Athlete",
+    "artist": "Artist",
+    "viewAll": "View All",
+    "featuredCreators": "Featured Creators"
+  },
+  "common": {
+    "price": "Price",
+    "delivery": "Delivery",
+    "status": "Status",
+    "actions": "Actions",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete"
+  }
+}

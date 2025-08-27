@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .ltr {
+  direction: ltr;
+}
+
+[dir="rtl"] .rtl {
+  direction: rtl;
+}
+
+/* RTL specific margins and paddings */
+[dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+[dir="rtl"] .mr-1 { margin-right: 0; margin-left: 0.25rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+
+/* RTL specific flexbox */
+[dir="rtl"] .space-x-1 > * + * { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .space-x-2 > * + * { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .space-x-3 > * + * { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .space-x-4 > * + * { margin-left: 0; margin-right: 1rem; }
+
+/* RTL specific borders */
+[dir="rtl"] .border-l { border-left: none; border-right: 1px solid; }
+[dir="rtl"] .border-r { border-right: none; border-left: 1px solid; }
+
+/* RTL specific rounded corners */
+[dir="rtl"] .rounded-l { border-radius: 0; border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem; }
+[dir="rtl"] .rounded-r { border-radius: 0; border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; }
+
+/* Background and color scheme */
+body {
+  background-color: #121212; /* Faded black background */
+  color: #ffffff;
+}
+
+/* Custom color scheme classes */
+.bg-custom-black {
+  background-color: #121212;
+}
+
+.bg-custom-gold {
+  background-color: #eaaf0f;
+}
+
+.text-custom-gold {
+  color: #eaaf0f;
+}
+
+.border-custom-gold {
+  border-color: #eaaf0f;
+}
+
+.bg-custom-orange {
+  background-color: #ff7a00;
+}
+
+.text-custom-orange {
+  color: #ff7a00;
+}
+
+/* Override card backgrounds */
+.bg-white {
+  background-color: #1e1e1e; /* Darker shade for cards */
+  color: #ffffff;
+}
+
+.text-gray-900 {
+  color: #ffffff;
+}
+
+.text-gray-800 {
+  color: #f0f0f0;
+}
+
+.text-gray-700 {
+  color: #e0e0e0;
+}
+
+.text-gray-600 {
+  color: #d0d0d0;
+}
+
+.text-gray-500 {
+  color: #b0b0b0;
+}
+
+.border-gray-200 {
+  border-color: #333333;
+}
+
+.bg-gray-50 {
+  background-color: #252525;
+  color: #d0d0d0;
+}
+
+.bg-gray-100 {
+  background-color: #2a2a2a;
+}
+
+/* Button overrides */
+.bg-primary-600 {
+  background-color: #eaaf0f; /* Gold */
+  color: #000000;
+}
+
+.hover\:bg-primary-700:hover {
+  background-color: #cd8a09; /* Darker gold */
+  color: #000000;
+}
+
+.bg-indigo-600 {
+  background-color: #ff7a00; /* Orange */
+  color: #000000;
+}
+
+.hover\:bg-indigo-700:hover {
+  background-color: #e15e00; /* Darker orange */
+  color: #000000;
+}
+
+.text-primary-600 {
+  color: #eaaf0f; /* Gold */
+}
+
+.hover\:text-primary-700:hover {
+  color: #cd8a09; /* Darker gold */
+}
+
+.text-indigo-600 {
+  color: #ff7a00; /* Orange */
+}
+
+.hover\:text-indigo-700:hover {
+  color: #e15e00; /* Darker orange */
+}
+
+/* Form input text color fix */
+input, textarea, select {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+/* Dark mode form inputs */
+.bg-black input, 
+.bg-black textarea, 
+.bg-black select {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+}
+
+/* Placeholder color */
+::placeholder {
+  color: #666666 !important;
+  opacity: 1;
+}
