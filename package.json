@@ -13,7 +13,6 @@
     "@headlessui/react": "^1.7.18",
     "@paypal/react-paypal-js": "^8.1.4",
     "@supabase/supabase-js": "^2.39.7",
-    "@netlify/blobs": "@10.0.9",
     "chart.js": "^4.4.1",
     "date-fns": "^3.3.1",
     "i18next": "^23.16.8",
@@ -31,6 +30,7 @@
     
   },
   "devDependencies": {
+  	"@netlify/blobs": "@10.0.9",
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -47,7 +47,7 @@
     "vite": "^5.4.2"
   },
   "engines": {
-    "node": "22.x",
-    "npm": "10.x"
+    "node": "14.x"
+ 
   }
 }
